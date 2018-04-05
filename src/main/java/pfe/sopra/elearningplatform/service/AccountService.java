@@ -8,4 +8,5 @@ public interface AccountService {
     public ERole saveRole(ERole role);
     public void addRoleUser(String username, String roleName);
     public EUser findEUserByUsername(String username);
+    public EUser findEUserByEmail(String email);
 }

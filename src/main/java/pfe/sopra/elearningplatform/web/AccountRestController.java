@@ -18,7 +18,15 @@ public class AccountRestController {
         //System.out.println(userForm.getUserName()+"********"+userTest.getUserName()+" *** "+ userTest.getUserId());
         if (userTest!=null)
             throw  new RuntimeException("Utilisateur existe déja");
+        if(!userForm.getEmail().endsWith("@soprahr.com"))
+            throw  new RuntimeException("Votre adresse n'est pas compatible");
+        EUser userTestEmail = accountService.findEUserByEmail(userForm.getEmail());
+        if (userTestEmail!=null)
+            throw  new RuntimeException("Adresse mail existe déja");
         EUser user = new EUser(userForm.getUsername(),userForm.getPassword());
+        user.setEmail(userForm.getEmail());
+        user.setFirstName(userForm.getFirstName());
+        user.setLastName(userForm.getLastName());
         accountService.saveUser(user);
         accountService.addRoleUser(userForm.getUsername(),"STUDENT");
         return user;

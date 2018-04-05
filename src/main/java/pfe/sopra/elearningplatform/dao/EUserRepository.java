@@ -5,4 +5,5 @@ import pfe.sopra.elearningplatform.entity.EUser;
 
 public interface EUserRepository extends JpaRepository<EUser,Long> {
     public EUser findByUsername(String username);
+    public EUser findEUserByEmail(String email);
 }

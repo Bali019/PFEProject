@@ -40,4 +40,9 @@ user.getRoles().add(role);
     public EUser findEUserByUsername(String username) {
         return eUserRepository.findByUsername(username);
     }
+
+    @Override
+    public EUser findEUserByEmail(String email) {
+        return eUserRepository.findEUserByEmail(email);
+    }
 }

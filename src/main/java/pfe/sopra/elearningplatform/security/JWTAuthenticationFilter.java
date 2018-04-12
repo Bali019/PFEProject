@@ -51,6 +51,7 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
                 .setExpiration(new Date(System.currentTimeMillis()+SecurityConstant.EXPIRATIONTIME))
                 .signWith(SignatureAlgorithm.HS256, SecurityConstant.SECRET)
                 .claim("roles",springUser.getAuthorities())
+                .claim("username",springUser.getUsername())
                 .compact();
         response.addHeader(SecurityConstant.HEADER_STRING,SecurityConstant.TOKEN_PREFIX + jwt);
 

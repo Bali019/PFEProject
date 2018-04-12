@@ -30,6 +30,8 @@ public class EUser {
     private Boolean active;
     @ManyToMany(fetch = FetchType.EAGER)
     private Collection<ERole> roles =new ArrayList<>();
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+    private Collection<Unity> unities = new ArrayList<>();
 
     public EUser(String username,String password) {
         this.password = password;

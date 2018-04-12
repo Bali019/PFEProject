@@ -1,9 +1,7 @@
 package pfe.sopra.elearningplatform.web;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import pfe.sopra.elearningplatform.entity.EUser;
 import pfe.sopra.elearningplatform.service.AccountService;
 @RestController
@@ -29,6 +27,27 @@ public class AccountRestController {
         user.setLastName(userForm.getLastName());
         accountService.saveUser(user);
         accountService.addRoleUser(userForm.getUsername(),"STUDENT");
+        return user;
+    }
+    @GetMapping(value = "/user")
+    public EUser getCurrentUser() {
+        return accountService.getCurrentUser();
+    }
+    @PutMapping(value = "/user2")
+    public EUser updateUser(@RequestBody EUser user){
+      EUser u = accountService.findEUserByUsername(user.getUsername());
+       // user.setUserId(u.getUserId());
+        user.setPassword(u.getPassword());
+        accountService.updateUser(user);
+        return user;
+    }
+    @RequestMapping(value = "user/",method = RequestMethod.PUT)
+    public EUser updateUser2(@RequestBody EUser user){
+        EUser u = accountService.findEUserByUsername(user.getUsername());
+      //  user.setUserId(u.getUserId());
+        user.setPassword(u.getPassword());
+
+        accountService.updateUser(user);
         return user;
     }
 }

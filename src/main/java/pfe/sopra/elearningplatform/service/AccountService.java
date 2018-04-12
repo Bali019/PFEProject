@@ -9,4 +9,6 @@ public interface AccountService {
     public void addRoleUser(String username, String roleName);
     public EUser findEUserByUsername(String username);
     public EUser findEUserByEmail(String email);
+    public EUser getCurrentUser();
+    public EUser updateUser(EUser user);
 }

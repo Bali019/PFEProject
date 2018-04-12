@@ -40,8 +40,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);// on désactivé la session pour travaillé avec JWT
         // http.formLogin()/**.loginPage("/login")*/;
         http.authorizeRequests().antMatchers("/login/**","/register/**").permitAll(); /* pas besoin d'authentification */
-        http.authorizeRequests().antMatchers(HttpMethod.POST,"/unitys/**").hasAnyAuthority("ADMIN");
-        http.authorizeRequests().anyRequest().authenticated();
+       //--> http.authorizeRequests().antMatchers(HttpMethod.POST,"/unitys/**").hasAnyAuthority("ADMIN");
+       // http.authorizeRequests().antMatchers(HttpMethod.PUT,"/user").permitAll();
+        // http.authorizeRequests().anyRequest().authenticated(); // authentification obligatoire avant tt type de requettes
         http.addFilter(new JWTAuthenticationFilter(authenticationManager()));
         http.addFilterBefore(new JWTAuthorizationFilter(), UsernamePasswordAuthenticationFilter.class);
     }

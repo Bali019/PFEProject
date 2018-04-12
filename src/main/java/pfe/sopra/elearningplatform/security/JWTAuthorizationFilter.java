@@ -26,6 +26,9 @@ public class JWTAuthorizationFilter extends OncePerRequestFilter {
                 " Access-control-Request-Method, " +
                 "Access-control-Request-Headers," +
                 "Authorization");
+
+        response.addHeader("Access-Control-Allow-Methods", "POST, GET, PUT, OPTIONS, DELETE");
+
         response.addHeader("Access-Control-Expose-Headers","Access-Control-Allow-Origin, Access-Control-Allow-Credentials, " +
                 "Authorization");
         if (request.getMethod().equals("OPTIONS")){
@@ -56,4 +59,5 @@ public class JWTAuthorizationFilter extends OncePerRequestFilter {
             SecurityContextHolder.getContext().setAuthentication(authenticationUser);
             filterChain.doFilter(request, response);
         } }
+
 }

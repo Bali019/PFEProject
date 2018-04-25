@@ -6,6 +6,7 @@ import org.springframework.transaction.annotation.Transactional;
 import pfe.sopra.elearningplatform.dao.ResourceRepository;
 import pfe.sopra.elearningplatform.entity.Resource;
 
+import java.util.Date;
 import java.util.List;
 @Service
 @Transactional
@@ -14,6 +15,7 @@ public class ResourceServiceImpl implements ResourceServices {
     private ResourceRepository resourceRepository;
     @Override
     public Resource createResource(Resource resource) {
+        resource.setCreationDate(new Date());
         return resourceRepository.save(resource);
     }
 

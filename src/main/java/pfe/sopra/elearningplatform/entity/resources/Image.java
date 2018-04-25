@@ -5,20 +5,35 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import pfe.sopra.elearningplatform.entity.Resource;
 
-import javax.persistence.DiscriminatorValue;
-import javax.persistence.Entity;
+import javax.persistence.*;
 import java.sql.Blob;
+
 @Entity
-@AllArgsConstructor @NoArgsConstructor
+@AllArgsConstructor
+@NoArgsConstructor
 @DiscriminatorValue("image")
 public class Image extends Resource {
-    public Blob image ;
+    @Lob
+    private byte[] image;
 
-    public Blob getImage() {
+    @Basic(fetch= FetchType.LAZY)
+    @Lob
+    private byte[] thumbnail;
+
+    public byte[] getImage() {
         return image;
     }
 
-    public void setImage(Blob image) {
+    public void setImage(byte[] image) {
         this.image = image;
+    }
+
+
+    public byte[] getThumbnail() {
+        return thumbnail;
+    }
+
+    public void setThumbnail(byte[] thumbnail) {
+        this.thumbnail = thumbnail;
     }
 }

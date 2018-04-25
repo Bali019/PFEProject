@@ -5,6 +5,7 @@ import pfe.sopra.elearningplatform.entity.Activity;
 
 import java.util.List;
 
-public interface ActivityRepository extends JpaRepository<Activity,Long> {
+public interface ActivityRepository extends JpaRepository<Activity, Long> {
     public List<Activity> findAllByActivityNameContains(String actN);
+
 }

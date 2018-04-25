@@ -12,6 +12,7 @@ public interface UnityServices {
  public Unity getUnity(Long id);
  public void deleteUnity(Long id);
  public List<Unity> searchUnity(String unityName);
+ public List<Unity> userUnities (String username);
 
 
 }

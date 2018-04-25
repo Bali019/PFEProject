@@ -56,4 +56,9 @@ public class UnityServiceImpl implements UnityServices {
     public List<Unity> searchUnity(String unityName) {
         return unityRepository.findAllByUnityNameIsContaining(unityName);
     }
+
+    @Override
+    public List<Unity> userUnities(String username) {
+        return unityRepository.getUserUnities(username);
+    }
 }

@@ -5,13 +5,13 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import pfe.sopra.elearningplatform.entity.Resource;
 
-import javax.persistence.DiscriminatorValue;
-import javax.persistence.Entity;
+import javax.persistence.*;
 import java.io.File;
 @Entity
 @AllArgsConstructor@NoArgsConstructor
 @DiscriminatorValue("file")
 public class FileResource extends Resource {
+
     private File file;
 
     public File getFile() {
@@ -21,4 +21,5 @@ public class FileResource extends Resource {
     public void setFile(File file) {
         this.file = file;
     }
+
 }

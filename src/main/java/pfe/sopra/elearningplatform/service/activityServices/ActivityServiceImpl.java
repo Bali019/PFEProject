@@ -8,11 +8,13 @@ import pfe.sopra.elearningplatform.entity.Activity;
 
 import java.util.Date;
 import java.util.List;
+
 @Service
 @Transactional
 public class ActivityServiceImpl implements ActivityService {
     @Autowired
     private ActivityRepository activityRepository;
+
     @Override
     public Activity createActivity(Activity activity) {
         activity.setCreationDate(new Date());
@@ -21,9 +23,9 @@ public class ActivityServiceImpl implements ActivityService {
 
     @Override
     public Activity updateActivity(Activity activity) {
-       Activity act = activityRepository.findOne(activity.getActivityId());
-       activity.setCreationDate(act.getCreationDate());
-       activity.setUnity(act.getUnity());
+        Activity act = activityRepository.findOne(activity.getActivityId());
+        activity.setCreationDate(act.getCreationDate());
+        activity.setUnity(act.getUnity());
         return activityRepository.save(activity);
     }
 
@@ -34,7 +36,7 @@ public class ActivityServiceImpl implements ActivityService {
 
     @Override
     public void deleteActivity(long id) {
-    activityRepository.delete(id);
+        activityRepository.delete(id);
     }
 
     @Override

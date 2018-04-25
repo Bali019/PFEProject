@@ -6,31 +6,38 @@ import pfe.sopra.elearningplatform.entity.Resource;
 import pfe.sopra.elearningplatform.service.resourceService.ResourceServices;
 
 import java.util.List;
+
 @RestController
-public class ResourceRestController  {
+public class ResourceRestController {
     @Autowired
     private ResourceServices resourceServices;
+
     @PostMapping("/createRes")
     public Resource createResource(@RequestBody Resource resource) {
         return resourceServices.createResource(resource);
     }
-@PutMapping("/updateRes")
+
+    @PutMapping("/updateRes")
     public Resource updateResource(@RequestBody Resource resource) {
         return resourceServices.updateResource(resource);
     }
-@GetMapping("/getRess")
+
+    @GetMapping("/getRess")
     public List<Resource> getAllResource() {
         return resourceServices.getAllResource();
     }
-@DeleteMapping("/deleteRes/{id}")
+
+    @DeleteMapping("/deleteRes/{id}")
     public void deleteResource(@PathVariable long id) {
-resourceServices.deleteResource(id);
+        resourceServices.deleteResource(id);
     }
-@GetMapping("/getRes/{id}")
+
+    @GetMapping("/getRes/{id}")
     public Resource getResource(@PathVariable long id) {
         return resourceServices.getResource(id);
     }
-@GetMapping("/searchRes")
+
+    @GetMapping("/searchRes")
     public List<Resource> searchResource(@RequestParam String resourceName) {
         return resourceServices.searchResource(resourceName);
     }

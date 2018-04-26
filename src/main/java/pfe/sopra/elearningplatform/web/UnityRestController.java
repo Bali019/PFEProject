@@ -2,6 +2,7 @@ package pfe.sopra.elearningplatform.web;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import pfe.sopra.elearningplatform.dto.UnityDTO;
 import pfe.sopra.elearningplatform.entity.Unity;
 import pfe.sopra.elearningplatform.service.unityServices.UnityServices;
 
@@ -47,8 +48,8 @@ public class UnityRestController {
         Unity unity = unityServices.getUnity(id);
         return unity;
     }
-    @RequestMapping(value = "/userUnities", method = RequestMethod.GET)
-    public List<Unity> userUnities(@RequestParam String username) {
+    @RequestMapping(value = "/userUnities/{username}", method = RequestMethod.GET)
+    public List<UnityDTO> userUnities(@PathVariable String username) {
 
         return unityServices.userUnities(username);
     }

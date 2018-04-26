@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import pfe.sopra.elearningplatform.dao.EUserRepository;
 import pfe.sopra.elearningplatform.dao.UnityRepository;
+import pfe.sopra.elearningplatform.dto.UnityDTO;
 import pfe.sopra.elearningplatform.entity.EUser;
 import pfe.sopra.elearningplatform.entity.Unity;
 import pfe.sopra.elearningplatform.service.AccountService;
@@ -58,7 +59,7 @@ public class UnityServiceImpl implements UnityServices {
     }
 
     @Override
-    public List<Unity> userUnities(String username) {
+    public List<UnityDTO> userUnities(String username) {
         return unityRepository.getUserUnities(username);
     }
 }

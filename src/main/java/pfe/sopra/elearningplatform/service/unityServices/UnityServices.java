@@ -1,6 +1,7 @@
 package pfe.sopra.elearningplatform.service.unityServices;
 
 import pfe.sopra.elearningplatform.dao.UnityRepository;
+import pfe.sopra.elearningplatform.dto.UnityDTO;
 import pfe.sopra.elearningplatform.entity.Unity;
 
 import java.util.List;
@@ -12,7 +13,7 @@ public interface UnityServices {
  public Unity getUnity(Long id);
  public void deleteUnity(Long id);
  public List<Unity> searchUnity(String unityName);
- public List<Unity> userUnities (String username);
+ public List<UnityDTO> userUnities (String username);
 
 
 }

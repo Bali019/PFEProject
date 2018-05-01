@@ -16,8 +16,6 @@ public class TextEditorController {
     @RequestMapping(value = "/addText", method = RequestMethod.POST)
     public TextField save(@RequestBody TextField text) {
         Unity u = new Unity();
-        u.setUnityId(3l);
-        text.setUnity(u);
         return (TextField) resourceServices.createResource(text);
     }
     @RequestMapping(value = "/getText/{id}", method = RequestMethod.GET)

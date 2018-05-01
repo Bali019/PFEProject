@@ -63,21 +63,23 @@ public class ImageController {
             @RequestPart("endDate") @Valid String endDate,
             @RequestPart("description") @Valid String description,
             @RequestPart("active") @Valid String active,
+            @RequestPart("unityId") @Valid String unityId,
             @RequestPart("file") @Valid MultipartFile files[]) {
         try {
             for (MultipartFile file : files) {
                 if (!file.isEmpty()) {
                     Image img = new Image();
                     System.out.println(imageName);
-Unity u = new Unity();
-u.setUnityId(3l);
-img.setUnity(u);
+                    Unity u = new Unity();
+                    u.setUnityId(Long.valueOf(unityId));
+                    img.setUnity(u);
+                    img.setActive(Boolean.parseBoolean(active));
                     img.setImage(file.getBytes());
                     img.setContentType(file.getContentType());
                     img.setResourceName(imageName);
                     img.setDescription(description);
                     //String dateString = "2011-09-09";
-                    System.out.println("show date "+ startDate);
+                    System.out.println("show date " + startDate);
                     DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
                     Date start = formatter.parse(startDate);
                     img.setStartDate(start);

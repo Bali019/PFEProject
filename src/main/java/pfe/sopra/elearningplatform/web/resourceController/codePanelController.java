@@ -16,9 +16,7 @@ public class codePanelController {
     @RequestMapping(value = "/addCode", method = RequestMethod.POST)
     public CodePanel save(@RequestBody CodePanel code) {
 
-        Unity u = new Unity();
-        u.setUnityId(3l);
-        code.setUnity(u);
+
         return (CodePanel) resourceServices.createResource(code);
     }
 }

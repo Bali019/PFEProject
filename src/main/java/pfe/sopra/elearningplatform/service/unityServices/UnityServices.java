@@ -14,6 +14,7 @@ public interface UnityServices {
  public void deleteUnity(Long id);
  public List<Unity> searchUnity(String unityName);
  public List<UnityDTO> userUnities (String username);
+ public List<UnityDTO> getFormationUnities(Long formationId);
 
 
 }

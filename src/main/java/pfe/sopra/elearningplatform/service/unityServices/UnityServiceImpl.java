@@ -62,4 +62,9 @@ public class UnityServiceImpl implements UnityServices {
     public List<UnityDTO> userUnities(String username) {
         return unityRepository.getUserUnities(username);
     }
+
+    @Override
+    public List<UnityDTO> getFormationUnities(Long formationId) {
+        return unityRepository.getFormationUnities(formationId);
+    }
 }

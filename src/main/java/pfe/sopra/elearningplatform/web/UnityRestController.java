@@ -53,4 +53,9 @@ public class UnityRestController {
 
         return unityServices.userUnities(username);
     }
+    @RequestMapping(value = "/formationUnities/{formationId}", method = RequestMethod.GET)
+    public List<UnityDTO> formationUnities(@PathVariable Long formationId) {
+
+        return unityServices.getFormationUnities(formationId);
+    }
 }

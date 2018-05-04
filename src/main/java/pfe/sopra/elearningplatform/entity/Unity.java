@@ -23,7 +23,7 @@ public class Unity {
     private Date creationDate;
     private Date startDate;
     private Date endDate;
-    private int duration;
+    private int orderU;
     private boolean active;
     @OneToMany(mappedBy = "unity",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Collection<Resource> resource = new ArrayList<>();
@@ -33,6 +33,8 @@ public class Unity {
     @ManyToOne(fetch = FetchType.LAZY)
     private EUser user;
 
+    @ManyToOne
+    private Formation formation;
     public Unity(String unityName, String description, EUser eUser) {
         this.unityName = unityName;
         this.description= description;
@@ -45,5 +47,13 @@ public class Unity {
     @JsonSetter
     public void setUser(EUser user) {
         this.user = user;
+    }
+    @JsonIgnore
+    public Formation getFormation() {
+        return formation;
+    }
+    @JsonSetter
+    public void setFormation(Formation formation) {
+        this.formation = formation;
     }
 }

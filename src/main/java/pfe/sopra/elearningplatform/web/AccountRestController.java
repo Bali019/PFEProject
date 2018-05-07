@@ -5,6 +5,8 @@ import org.springframework.web.bind.annotation.*;
 import pfe.sopra.elearningplatform.entity.EUser;
 import pfe.sopra.elearningplatform.service.AccountService;
 
+import java.util.Date;
+
 @RestController
 public class AccountRestController {
     @Autowired
@@ -46,13 +48,14 @@ public class AccountRestController {
         return user;
     }
 
-    @RequestMapping(value = "user/", method = RequestMethod.PUT)
-    public EUser updateUser2(@RequestBody EUser user) {
-        EUser u = accountService.findEUserByUsername(user.getUsername());
+    @RequestMapping(value = "/userLogin", method = RequestMethod.PUT)
+    public EUser updateUser2(@RequestBody String username) {
+        EUser u = accountService.findEUserByUsername(username);
         //  user.setUserId(u.getUserId());
-        user.setPassword(u.getPassword());
+        Date d = new Date();
+        u.setDateLastConnexion(d);
 
-        accountService.updateUser(user);
-        return user;
+        accountService.updateUser(u);
+        return u;
     }
 }

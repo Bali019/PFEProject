@@ -32,6 +32,7 @@ public class EUser {
     private Collection<ERole> roles =new ArrayList<>();
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
     private Collection<Unity> unities = new ArrayList<>();
+    private Date dateLastConnexion;
 
     public EUser(String username,String password) {
         this.password = password;

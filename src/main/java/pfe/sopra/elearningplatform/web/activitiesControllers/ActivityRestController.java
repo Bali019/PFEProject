@@ -1,4 +1,4 @@
-package pfe.sopra.elearningplatform.web;
+package pfe.sopra.elearningplatform.web.activitiesControllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

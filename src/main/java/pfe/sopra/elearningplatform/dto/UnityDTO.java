@@ -21,4 +21,5 @@ public class UnityDTO {
     private Date endDate;
     private boolean active;
     private int orderU;
+    private String type;
 }

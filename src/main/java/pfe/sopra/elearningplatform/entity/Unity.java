@@ -24,6 +24,7 @@ public class Unity {
     private Date startDate;
     private Date endDate;
     private int orderU;
+    private String type;
     private boolean active;
     @OneToMany(mappedBy = "unity",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Collection<Resource> resource = new ArrayList<>();

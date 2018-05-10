@@ -13,8 +13,8 @@ import java.util.List;
 public interface UnityRepository extends JpaRepository<Unity, Long> {
     public List<Unity> findAllByUnityNameIsContaining(String search);
 
-    @Query(value = "SELECT new pfe.sopra.elearningplatform.dto.UnityDTO( u.unityId , u.unityName ,u.description , u.creationDate, u.startDate,u.endDate, u.active, u.orderU) from Unity u  where u.user.username = ?1")
+    @Query(value = "SELECT new pfe.sopra.elearningplatform.dto.UnityDTO( u.unityId , u.unityName ,u.description , u.creationDate, u.startDate,u.endDate, u.active, u.orderU, u.type) from Unity u  where u.user.username = ?1")
     public List<UnityDTO> getUserUnities(String username);
-    @Query(value = "SELECT new pfe.sopra.elearningplatform.dto.UnityDTO( u.unityId , u.unityName ,u.description , u.creationDate, u.startDate,u.endDate, u.active, u.orderU) from Unity u  where u.formation.formationId = ?1 order by u.orderU asc ")
+    @Query(value = "SELECT new pfe.sopra.elearningplatform.dto.UnityDTO( u.unityId , u.unityName ,u.description , u.creationDate, u.startDate,u.endDate, u.active, u.orderU, u.type) from Unity u  where u.formation.formationId = ?1 order by u.orderU asc ")
     public List<UnityDTO> getFormationUnities(Long formationId);
 }

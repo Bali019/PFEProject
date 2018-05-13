@@ -25,6 +25,7 @@ import java.util.Date;
         @JsonSubTypes.Type(name = "forum", value = Forum.class)
 
 })
+@Table(name = "activity")
 public class Activity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

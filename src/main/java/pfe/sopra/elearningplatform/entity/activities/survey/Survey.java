@@ -17,6 +17,6 @@ import java.util.Collection;
 public class Survey extends Activity {
     private String type;
     private int questionNumber;
-    @OneToMany(mappedBy = "survey", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "survey", fetch = FetchType.EAGER , cascade = {CascadeType.ALL, CascadeType.MERGE, CascadeType.PERSIST})
     private Collection<Question> questions = new ArrayList<>();
 }

@@ -1,5 +1,7 @@
 package pfe.sopra.elearningplatform.entity.activities.survey;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonSetter;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -19,8 +21,17 @@ public class Question {
     private int rsponseNumber;
     private boolean flag;
     private Date creationDate;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "survey_activity_id")
     private Survey survey;
-    @OneToMany(mappedBy = "question", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "question", orphanRemoval = true, fetch = FetchType.EAGER,cascade = CascadeType.ALL)
     private Collection<Response> responses = new ArrayList<>();
+@JsonIgnore
+    public Survey getSurvey() {
+        return survey;
+    }
+@JsonSetter
+    public void setSurvey(Survey survey) {
+        this.survey = survey;
+    }
 }

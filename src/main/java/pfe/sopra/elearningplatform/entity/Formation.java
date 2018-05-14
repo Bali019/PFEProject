@@ -27,7 +27,7 @@ public class Formation {
     private int duration;
     private boolean active;
     private String level;
-    @OneToMany(mappedBy = "formation", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "formation", fetch = FetchType.LAZY, cascade = {CascadeType.ALL, CascadeType.MERGE, CascadeType.PERSIST,  CascadeType.REMOVE})
     private Collection<Unity> unities = new ArrayList<>();
     @ManyToOne
     private FormationCategory formationCategory;

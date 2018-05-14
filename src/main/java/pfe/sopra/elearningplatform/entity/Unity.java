@@ -26,9 +26,9 @@ public class Unity {
     private int orderU;
     private String type;
     private boolean active;
-    @OneToMany(mappedBy = "unity",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "unity",fetch = FetchType.LAZY, cascade = {CascadeType.ALL, CascadeType.MERGE, CascadeType.PERSIST,  CascadeType.REMOVE})
     private Collection<Resource> resource = new ArrayList<>();
-    @OneToMany(mappedBy = "unity",fetch = FetchType.LAZY , cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "unity",fetch = FetchType.LAZY , cascade = {CascadeType.ALL, CascadeType.MERGE, CascadeType.PERSIST,  CascadeType.REMOVE})
     private Collection<Activity> activity = new ArrayList<>();
 
     @ManyToOne(fetch = FetchType.LAZY)

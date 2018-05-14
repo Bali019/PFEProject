@@ -15,6 +15,6 @@ public interface UnityRepository extends JpaRepository<Unity, Long> {
 
     @Query(value = "SELECT new pfe.sopra.elearningplatform.dto.UnityDTO( u.unityId , u.unityName ,u.description , u.creationDate, u.startDate,u.endDate, u.active, u.orderU, u.type) from Unity u  where u.user.username = ?1")
     public List<UnityDTO> getUserUnities(String username);
-    @Query(value = "SELECT new pfe.sopra.elearningplatform.dto.UnityDTO( u.unityId , u.unityName ,u.description , u.creationDate, u.startDate,u.endDate, u.active, u.orderU, u.type) from Unity u  where u.formation.formationId = ?1 order by u.orderU asc ")
+    @Query(value = "SELECT new pfe.sopra.elearningplatform.dto.UnityDTO( u.unityId , u.unityName ,u.description , u.creationDate, u.startDate,u.endDate, u.active, u.orderU, u.type) from Unity u  where u.formation.formationId = ?1")
     public List<UnityDTO> getFormationUnities(Long formationId);
 }

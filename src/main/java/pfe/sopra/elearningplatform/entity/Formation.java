@@ -27,6 +27,7 @@ public class Formation {
     private int duration;
     private boolean active;
     private String level;
+    private String videoUrl;
     @OneToMany(mappedBy = "formation", fetch = FetchType.LAZY, cascade = {CascadeType.ALL, CascadeType.MERGE, CascadeType.PERSIST,  CascadeType.REMOVE})
     private Collection<Unity> unities = new ArrayList<>();
     @ManyToOne
@@ -34,6 +35,8 @@ public class Formation {
 
     @ManyToOne(fetch = FetchType.LAZY)
     private EUser user;
+    @OneToMany(mappedBy = "formation", cascade = {CascadeType.ALL, CascadeType.MERGE, CascadeType.PERSIST,  CascadeType.REMOVE})
+    private Collection<FormationGoal> formationGoals ;
 
     @JsonIgnore
     public EUser getUser() {

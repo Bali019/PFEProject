@@ -15,6 +15,7 @@ public interface UnityServices {
  public List<Unity> searchUnity(String unityName);
  public List<UnityDTO> userUnities (String username);
  public List<UnityDTO> getFormationUnities(Long formationId);
+ public List<UnityDTO> getSectionsUnitie(Long unityId);
 
 
 }

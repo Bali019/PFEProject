@@ -67,4 +67,9 @@ public class UnityServiceImpl implements UnityServices {
     public List<UnityDTO> getFormationUnities(Long formationId) {
         return unityRepository.getFormationUnities(formationId);
     }
+
+    @Override
+    public List<UnityDTO> getSectionsUnitie(Long unityId) {
+        return unityRepository.getSectionsUnitie(unityId);
+    }
 }

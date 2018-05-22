@@ -24,7 +24,17 @@ public class UnityRestController {
 
     @RequestMapping(value = "/addUnity", method = RequestMethod.POST)
     public Unity save(@RequestBody Unity unity) {
-        return unityServices.createUnity(unity);
+        if(unity.getChapter()!=null){
+        System.out.println("hollllaaaaaaa" +unity.getChapter().getUnityId());
+        Long a = unity.getChapter().getUnityId();
+        unity.setChapter(null);
+        Unity ch = unityServices.createUnity(unity);
+        Unity u = unityServices.getUnity(a);
+        ch.setChapter(u);
+        return unityServices.updateUnity(ch);}
+        else {
+            return unityServices.createUnity(unity);
+        }
     }
 
     @PutMapping(value = "/updateUnity")
@@ -57,5 +67,10 @@ public class UnityRestController {
     public List<UnityDTO> formationUnities(@PathVariable Long formationId) {
 
         return unityServices.getFormationUnities(formationId);
+    }
+    @RequestMapping(value = "/sectionsUnitie/{id}", method = RequestMethod.GET)
+    public List<UnityDTO> sectionsUnitie(@PathVariable Long id) {
+
+        return unityServices.getSectionsUnitie(id);
     }
 }

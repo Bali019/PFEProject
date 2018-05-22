@@ -3,10 +3,12 @@ package pfe.sopra.elearningplatform.dto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import pfe.sopra.elearningplatform.entity.Unity;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.util.Collection;
 import java.util.Date;
 @Data
 @AllArgsConstructor
